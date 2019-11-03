@@ -7,7 +7,8 @@
             'name': {value: '', required: true},
             'nodeId': {value: '', validate: RED.validators.number()},
             'profile': {value: '', validate: RED.validators.number()},
-            'attributes': {value: '', validate: RED.validators.typedInput('json')}
+            'attributes': {value: '', validate: RED.validators.typedInput('json'),
+            'image': {value: 'default'}}
         },
         icon: 'homee-logo.png',
         inputs: 1,
@@ -53,6 +54,10 @@
         <input type="text" id="node-input-profile" style="width: 70%" list="device-profiles">
         <datalist id="device-profiles">
         </datalist>
+    </div>
+    <div class="form-row">
+        <label for="node-input-image"><i class="fa fa-hashtag"></i> Icon</label>
+        <input type="number" id="node-input-image" placeholder="nodeicon_default" style="width: 70%">
     </div>
     <div class="form-row">
         <label for="node-input-attributes"><i class="fa fa-shopping"></i> Attributes</label>
