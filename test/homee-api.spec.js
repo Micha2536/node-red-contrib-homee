@@ -3,15 +3,15 @@ const should = require('should');
 // eslint-disable-next-line
 const sinon = require('sinon');
 const helper = require('node-red-node-test-helper');
-const homeeNode = require('../nodes/homee.js');
-const homeeApiNode = require('../nodes/homee-api.js');
+const homeeNode = require('../nodes/homee');
+const homeeApiNode = require('../nodes/homee-api');
 
 helper.init(require.resolve('node-red'));
 
 describe('homeeApi Node', () => {
-  before((done) => helper.startServer(done));
-  after((done) => helper.stopServer(done));
-  afterEach(() => helper.unload());
+  before(async () => { helper.startServer() });
+  after(async () =>  { helper.stopServer() });
+  afterEach(async () => { helper.unload() });
 
   // eslint-disable-next-line
   const defaultFlow = [{ id: 'n1', type: 'homee', name: 'homee', host: '192.168.178.109', globalContext: false, device: 'NodeRedTest' }, { id: 'n2', type: 'homeeApi', homee: 'n1', name: 'homeeApi' }];

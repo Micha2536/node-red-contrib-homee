@@ -1,6 +1,6 @@
 const helper = require('node-red-node-test-helper');
-const virtualHomeeNode = require('../nodes/virtual-homee.js');
-const homeeDeviceNode = require('../nodes/homee-device.js');
+const virtualHomeeNode = require('../nodes/virtual-homee');
+const homeeDeviceNode = require('../nodes/homee-device');
 
 helper.init(require.resolve('node-red'), {
   contextStorage: {
@@ -16,9 +16,9 @@ helper.init(require.resolve('node-red'), {
 const credentials = { n1: { user: 'foo', pass: 'bar' } };
 
 describe('virtualHomee Node', () => {
-  before((done) => helper.startServer(done));
-  after((done) => helper.stopServer(done));
-  afterEach(() => helper.unload());
+  before(async () => { helper.startServer() });
+  after(async () => { helper.stopServer() });
+  afterEach(async () => { helper.unload() });
 
   it('should be loaded with correct defaults', (done) => {
     const flow = [{ id: 'n1', type: 'virtualHomee', name: 'virtualHomee' }];

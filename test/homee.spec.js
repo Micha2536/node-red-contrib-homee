@@ -1,14 +1,14 @@
 // eslint-disable-next-line
 const sinon = require('sinon');
 const helper = require('node-red-node-test-helper');
-const homeeNode = require('../nodes/homee.js');
+const homeeNode = require('../nodes/homee');
 
 helper.init(require.resolve('node-red'));
 
 describe('homee Node', () => {
-  before((done) => helper.startServer(done));
-  after((done) => helper.stopServer(done));
-  afterEach(() => helper.unload());
+  before(async () => { helper.startServer() });
+  after(async () => { helper.stopServer() });
+  afterEach(async () => { helper.unload() });
 
   // eslint-disable-next-line
   const defaultFlow = [{ id: 'n1', type: 'homee', name: 'homee', device: 'NodeRedTest' }];
